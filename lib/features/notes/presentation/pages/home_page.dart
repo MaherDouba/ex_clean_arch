@@ -86,23 +86,25 @@ class _HomePageState extends State<HomePage> {
                     itemCount: notes.length,
                     itemBuilder: (context, index) {
                       final note = notes[index];
-                      return ListTile(
-                        title: Text(note.title),
-                        subtitle: Text(note.note),
-                        trailing: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            IconButton(
-                              color: Colors.blue,
-                              icon: Icon(Icons.edit),
-                              onPressed: () => onEditNote(note),
-                            ),
-                            IconButton(
-                              color: Colors.red,
-                              icon: Icon(Icons.delete),
-                              onPressed: () => onDeleteNote(note.id),
-                            ),
-                          ],
+                      return Card(
+                        child: ListTile(
+                          title: Text(note.title),
+                          subtitle: Text(note.note),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              IconButton(
+                                color: Colors.blue,
+                                icon: Icon(Icons.edit),
+                                onPressed: () => onEditNote(note),
+                              ),
+                              IconButton(
+                                color: Colors.red,
+                                icon: Icon(Icons.delete),
+                                onPressed: () => onDeleteNote(note.id),
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     },
