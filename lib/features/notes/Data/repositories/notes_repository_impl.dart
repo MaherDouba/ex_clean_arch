@@ -4,13 +4,16 @@ import '../data_sources/notes_local_data_source.dart';
 import '../data_sources/shared_preferences_helper.dart';
 import '../models/note_model.dart';
 
+
 class NotesRepositoryImpl implements NotesRepository {
   final NotesLocalDataSource localDataSource;
   final SharedPreferencesHelper sharedPreferencesHelper;
+   
 
   NotesRepositoryImpl({
     required this.localDataSource,
     required this.sharedPreferencesHelper,
+   
   });
 
   @override
@@ -61,3 +64,4 @@ class NotesRepositoryImpl implements NotesRepository {
     }
   }
 }
+

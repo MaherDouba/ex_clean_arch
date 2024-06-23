@@ -1,7 +1,10 @@
+// features/notes/presentation/controllers/notes_controller.dart
+
 import '../../domain/entities/note.dart';
 import '../../domain/usecases/add_note.dart';
 import '../../domain/usecases/delete_note.dart';
 import '../../domain/usecases/get_notes.dart';
+
 import '../../domain/usecases/update_note.dart';
 
 class NotesController {
@@ -9,15 +12,18 @@ class NotesController {
   final AddNote addNote;
   final UpdateNote updateNote;
   final DeleteNote deleteNote;
+ 
 
   NotesController({
     required this.getNotes,
     required this.addNote,
     required this.updateNote,
     required this.deleteNote,
+    
   });
 
   List<Note> notes = [];
+  List<dynamic> todos = [];
 
   Future<void> fetchNotes(bool fromDatabase) async {
     notes = await getNotes(fromDatabase);
@@ -37,4 +43,6 @@ class NotesController {
     await deleteNote.call(id, fromDatabase);
     await fetchNotes(fromDatabase);
   }
+
+ 
 }

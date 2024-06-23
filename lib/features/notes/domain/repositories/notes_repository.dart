@@ -1,3 +1,4 @@
+import '../../../todos/domain/entities/todo.dart';
 import '../entities/note.dart';
 
 abstract class NotesRepository {
@@ -5,4 +6,5 @@ abstract class NotesRepository {
   Future<void> addNote(Note note, bool toDatabase);
   Future<void> updateNote(Note note, bool toDatabase);
   Future<void> deleteNoteById(int id, bool fromDatabase);
+ 
 }

@@ -6,11 +6,11 @@ class AddNotesPage extends StatelessWidget {
   final NotesController notesController;
 
   AddNotesPage({Key? key, required this.notesController}) : super(key: key);
-
+  
   final TextEditingController titleController = TextEditingController();
   final TextEditingController noteController = TextEditingController();
   final TextEditingController colorController = TextEditingController();
-
+  
   Future<void> onAddNote() async {
     final newNote = Note(
       id: DateTime.now().millisecondsSinceEpoch, 
@@ -18,7 +18,9 @@ class AddNotesPage extends StatelessWidget {
       note: noteController.text,
       color: colorController.text,
     );
+    
     await notesController.createNote(newNote, true);
+      
   }
 
   @override
@@ -47,7 +49,7 @@ class AddNotesPage extends StatelessWidget {
                 await onAddNote();
                 Navigator.of(context).pop();
               },
-              child: Text('Add'),
+              child: Text('Add Note'),
             ),
           ],
         ),
